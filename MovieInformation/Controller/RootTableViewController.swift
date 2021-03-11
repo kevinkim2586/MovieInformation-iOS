@@ -2,9 +2,13 @@ import UIKit
 
 class RootTableViewController: UIViewController {
 
+    @IBOutlet weak var movieInfoTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        movieInfoTableView.delegate = self
+        movieInfoTableView.dataSource = self
     }
 
 

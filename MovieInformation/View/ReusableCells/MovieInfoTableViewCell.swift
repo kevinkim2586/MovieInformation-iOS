@@ -7,9 +7,6 @@ class MovieInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var movieAgeLabel: UIImageView!
     @IBOutlet weak var movieInfoLabel: UILabel!
     @IBOutlet weak var movieReleaseDateLabel: UILabel!
-    
-    
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
