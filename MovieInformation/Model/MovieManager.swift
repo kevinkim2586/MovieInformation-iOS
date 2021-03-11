@@ -36,11 +36,9 @@ struct MovieManager {
                         movieDelegate?.didFetchMovieList(self, fetchedMovies: movieList)
                     }
                 }
-                
             }
             task.resume()
         }
-        
     }
     
     func parseJSONForMovieLists(movieData: Data) -> [MovieListModel]? {
@@ -51,18 +49,11 @@ struct MovieManager {
         let decoder = JSONDecoder()
         
         do {
-            
             let decodedMovieList = try decoder.decode(MovieListData.self, from: movieData)
+            totalMoviePosters = downloadMoviePosterImage(from: decodedMovieList)
             
-            //DispatchQueue.global().async {
-                totalMoviePosters = downloadMoviePosterImage(from: decodedMovieList)
-            //}
-            
-
             for i in 0..<decodedMovieList.movies.count {
-                
-//                print("decodedMovieList: \(decodedMovieList.movies.count)")
-//                print("totalMoviePosters: \(totalMoviePosters.count)")
+
                 
                 if let moviePoster = totalMoviePosters[i] {
                     

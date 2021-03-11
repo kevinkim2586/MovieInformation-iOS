@@ -47,10 +47,6 @@ extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        
-        // nil 값 다 확인하고 ui 에 대입해보기
-        
-        
         DispatchQueue.main.async {
             
             if let index = tableView.indexPath(for: cell) {
