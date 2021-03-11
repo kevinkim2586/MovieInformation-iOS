@@ -5,7 +5,7 @@ class RootTableViewController: UIViewController {
     @IBOutlet weak var movieInfoTableView: UITableView!
     
     var movieManager = MovieManager()
-    var movieList: MovieListModel
+    var movieList: [MovieListModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,9 +13,8 @@ class RootTableViewController: UIViewController {
         movieManager.movieDelegate = self
         
 
-        OperationQueue().addOperation {
-            self.movieManager.fetchEntireMovieList()
-        }
+        self.movieManager.fetchEntireMovieList()
+        
 
         
         movieInfoTableView.delegate = self
@@ -31,22 +30,33 @@ class RootTableViewController: UIViewController {
 extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList.movieInfoData.movies.count
+        
+        print(movieList.count)
+        return self.movieList.count
+   
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = Constants.cellID.movieInfoTableViewCellID
+    
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MovieInfoTableViewCell else {
+            return UITableViewCell()
+        }
+
+        //let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MovieInfoTableViewCell
+ 
         
-        let movie: Movies = movieList.movieInfoData.movies[indexPath.row]
-        
-        let 
+        // nil 값 다 확인하고 ui 에 대입해보기
         
         
         
+        cell.movieNameLabel.text = self.movieList[indexPath.row].movieInfo.title
+        cell.movieReleaseDateLabel.text = self.movieList[indexPath.row].movieInfo.date
         
+    
         
-        
+        return cell
     }
     
     
@@ -57,18 +67,25 @@ extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension RootTableViewController: MovieManagerDelegate {
     
-    func didFetchMovieList(_ movieManager: MovieManager, movieInfo: MovieListModel) {
-        self.movieList = movieInfo
-    
+    func didFetchMovieList(_ movieManager: MovieManager, fetchedMovies: [MovieListModel]) {
+        self.movieList = fetchedMovies
+        
+        // 아래걸 혹시 main 스레드에 해야함?
+        movieInfoTableView.reloadData()
     }
     
     func didFailWithError(error: Error) {
         createAlertMessage("데이터 가져오기 실패", "\(error.localizedDescription)")
     }
-    
-    
-    
+
 }
+
+
+
+
+
+
+
 
 //MARK: - Other methods
 
@@ -80,5 +97,5 @@ extension RootTableViewController {
         alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
+
 }

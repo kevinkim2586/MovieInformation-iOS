@@ -2,13 +2,13 @@ import UIKit
 
 protocol MovieManagerDelegate {
     
-    func didFetchMovieList(_ movieManager: MovieManager, movieInfo: MovieListModel)
+    func didFetchMovieList(_ movieManager: MovieManager, fetchedMovies: [MovieListModel])
     func didFailWithError(error: Error)
 }
 
 struct MovieManager {
     
-    let baseURL = "connect-boxoffice.run.goorm.io/"
+    let baseURL = "https://connect-boxoffice.run.goorm.io/"
     var order_type = 1
 
     var movieDelegate: MovieManagerDelegate?
@@ -16,6 +16,7 @@ struct MovieManager {
     func fetchEntireMovieList() {
         
         let urlString = "\(baseURL+Constants.requestParameters.forMovieList)?order_type=\(order_type)"
+        print(urlString)
         
         if let url = URL(string: urlString) {
             
@@ -24,13 +25,15 @@ struct MovieManager {
             let task = session.dataTask(with: url) { (data, response, error) in
                 
                 if error != nil {
+                    print(error?.localizedDescription)
                     movieDelegate?.didFailWithError(error: error!)
                     return
                 }
                 
                 if let dataReceived = data {
+                    
                     if let movieList = parseJSONForMovieLists(movieData: dataReceived) {
-                        movieDelegate?.didFetchMovieList(self, movieInfo: movieList)
+                        movieDelegate?.didFetchMovieList(self, fetchedMovies: movieList)
                     }
                 }
                 
@@ -40,25 +43,31 @@ struct MovieManager {
         
     }
     
-    func parseJSONForMovieLists(movieData: Data) -> MovieListModel? {
+    func parseJSONForMovieLists(movieData: Data) -> [MovieListModel]? {
         
-        var moviePosterImages: [UIImage] = []
+        //var moviePosterImages: [UIImage] = []
+        var totalMovieInfo: [MovieListModel] = []
         
         let decoder = JSONDecoder()
         
         do {
             
             let decodedMovieList = try decoder.decode(MovieListData.self, from: movieData)
-            
-            OperationQueue().addOperation {
+
+            for i in 0..<decodedMovieList.movies.count {
                 
-                if let downloadedPosterImages = downloadMoviePosterImage(from: decodedMovieList.movies) {
-                    moviePosterImages = downloadedPosterImages
-                }
+                let movie = MovieListModel(movieInfo: decodedMovieList.movies[i])
+                
+            
+                totalMovieInfo.append(movie)
             }
             
-            let movieList = MovieListModel(movieInfoData: decodedMovieList, movieImage: moviePosterImages)
-            return movieList
+//            if let downloadedPosterImages = downloadMoviePosterImage(from: decodedMovieList.movies) {
+//                moviePosterImages = downloadedPosterImages
+//            }
+            
+            return totalMovieInfo
+        
     
         } catch {
             movieDelegate?.didFailWithError(error: error)
@@ -66,7 +75,7 @@ struct MovieManager {
         }
     }
     
-    func downloadMoviePosterImage(from movies: [Movies]) -> [UIImage]? {
+    func downloadMoviePosterImage(from movies: [Movie]) -> [UIImage]? {
         
         var moviePosterImageArray: [UIImage] = []
         
