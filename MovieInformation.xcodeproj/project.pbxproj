@@ -66,6 +66,7 @@
 				7C1CA88125F9DB7E00036C33 /* Controller */,
 				7C1CA87325F9D96900036C33 /* Assets.xcassets */,
 				7C1CA88325F9DBD600036C33 /* Constants.swift */,
+				7C1CA87825F9D96900036C33 /* Info.plist */,
 			);
 			path = MovieInformation;
 			sourceTree = "<group>";
@@ -98,7 +99,6 @@
 		7C1CA88225F9DBA300036C33 /* ETC */ = {
 			isa = PBXGroup;
 			children = (
-				7C1CA87825F9D96900036C33 /* Info.plist */,
 				7C1CA86A25F9D96700036C33 /* AppDelegate.swift */,
 				7C1CA86C25F9D96700036C33 /* SceneDelegate.swift */,
 			);
