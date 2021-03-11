@@ -15,14 +15,117 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CKi-hp-sdS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="movieInfoTableCell" rowHeight="129" id="rIG-EV-86R">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="129"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rIG-EV-86R" id="ptU-j6-SuZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ahb-aP-ABN">
+                                                    <rect key="frame" x="20" y="11" width="100" height="105"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="105" id="2P2-L2-GJl"/>
+                                                        <constraint firstAttribute="width" constant="100" id="Fbd-MG-93S"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-1c-f8l" userLabel="First Row Stack View">
+                                                    <rect key="frame" x="130" y="11" width="166" height="25"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영화 이름" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c10-Mw-nwc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="YeE-qI-C6L"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_allages" translatesAutoresizingMaskIntoConstraints="NO" id="w7y-R9-UOo">
+                                                            <rect key="frame" x="141" y="0.0" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="0JI-8x-eye"/>
+                                                                <constraint firstAttribute="width" constant="25" id="JZq-nU-YFG"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="uST-5I-rZ9"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점 : 10.00 예매순위 : 1 예매율 : 10.00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXT-Jf-Gzs">
+                                                    <rect key="frame" x="130" y="51" width="230" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="230" id="68n-Jm-PVU"/>
+                                                        <constraint firstAttribute="height" constant="20" id="Czu-Nh-yA5"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개봉일 : 2017-10-20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOF-0c-y1n">
+                                                    <rect key="frame" x="130" y="86" width="116" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="SnQ-5V-xMN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tOF-0c-y1n" firstAttribute="top" secondItem="oXT-Jf-Gzs" secondAttribute="bottom" constant="15" id="3M6-8D-6pn"/>
+                                                <constraint firstItem="oXT-Jf-Gzs" firstAttribute="leading" secondItem="Ahb-aP-ABN" secondAttribute="trailing" constant="10" id="ABR-IJ-HjO"/>
+                                                <constraint firstItem="Gf2-1c-f8l" firstAttribute="leading" secondItem="Ahb-aP-ABN" secondAttribute="trailing" constant="10" id="O95-Kv-fUX"/>
+                                                <constraint firstItem="tOF-0c-y1n" firstAttribute="leading" secondItem="Ahb-aP-ABN" secondAttribute="trailing" constant="10" id="WHV-2y-Hs2"/>
+                                                <constraint firstItem="Gf2-1c-f8l" firstAttribute="top" secondItem="ptU-j6-SuZ" secondAttribute="topMargin" id="Yoj-lw-bxc"/>
+                                                <constraint firstItem="Ahb-aP-ABN" firstAttribute="leading" secondItem="ptU-j6-SuZ" secondAttribute="leadingMargin" id="fJg-Zo-BHc"/>
+                                                <constraint firstItem="Ahb-aP-ABN" firstAttribute="top" secondItem="ptU-j6-SuZ" secondAttribute="topMargin" id="iUR-06-Uhv"/>
+                                                <constraint firstItem="oXT-Jf-Gzs" firstAttribute="top" secondItem="Gf2-1c-f8l" secondAttribute="bottom" constant="15" id="toD-e2-C5Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CKi-hp-sdS" secondAttribute="trailing" id="CnO-rb-kNx"/>
+                            <constraint firstItem="CKi-hp-sdS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Wsb-m0-dLr"/>
+                            <constraint firstItem="CKi-hp-sdS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZNH-GZ-0LR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CKi-hp-sdS" secondAttribute="bottom" id="mlf-37-re4"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Table" image="ic_table" id="ewx-R8-XEJ"/>
+                    <navigationItem key="navigationItem" title="예매율순" id="hL8-jV-yV9">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings" id="Iff-13-vrq">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1342.0289855072465" y="-90.401785714285708"/>
+            <point key="canvasLocation" x="2252.1739130434785" y="-90.401785714285708"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HpN-VI-FG3">
+            <objects>
+                <viewController id="8BJ-ca-4dL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZQj-A7-o74">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="b7S-s1-3XG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uLa-28-DG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4749.275362318841" y="251.78571428571428"/>
         </scene>
         <!--CollectionView-->
         <scene sceneID="XAe-1y-HRE">
@@ -34,11 +137,15 @@
                         <viewLayoutGuide key="safeArea" id="RO9-0h-7IA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Collection" image="ic_collection" id="CUR-Ba-GHC"/>
+                    <navigationItem key="navigationItem" title="예매율순" id="iAW-gA-Zl6">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings" id="j2m-LS-mBB">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUG-sZ-kJ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1342.0289855072465" y="594.64285714285711"/>
+            <point key="canvasLocation" x="2252.1739130434785" y="594.64285714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="a53-QI-Odb">
@@ -51,20 +158,64 @@
                         <color key="selectedImageTintColor" red="0.31372549020000001" green="0.43137254899999999" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="gBN-k5-kFL"/>
-                        <segue destination="EEh-5s-J3V" kind="relationship" relationship="viewControllers" id="7Oh-R1-mLd"/>
+                        <segue destination="Mqp-zG-3Ab" kind="relationship" relationship="viewControllers" id="gBN-k5-kFL"/>
+                        <segue destination="HBd-hS-fvm" kind="relationship" relationship="viewControllers" id="7Oh-R1-mLd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpo-gr-xHE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="431.8840579710145" y="251.78571428571428"/>
         </scene>
+        <!--Table-->
+        <scene sceneID="on1-uY-MJs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mqp-zG-3Ab" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Table" image="ic_table" id="ewx-R8-XEJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8ux-Fo-iiU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ogt-pq-uBT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pNR-KA-rgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1342.0289855072465" y="-90.401785714285708"/>
+        </scene>
+        <!--Collection-->
+        <scene sceneID="IFA-Gv-SRO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HBd-hS-fvm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Collection" image="ic_collection" id="CUR-Ba-GHC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VdM-kw-NLC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EEh-5s-J3V" kind="relationship" relationship="rootViewController" id="lg7-Cw-G0v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YtK-Cs-QPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1342.0289855072465" y="594.64285714285711"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="ic_allages" width="25" height="20"/>
         <image name="ic_collection" width="25" height="25"/>
+        <image name="ic_settings" width="24" height="24"/>
         <image name="ic_table" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

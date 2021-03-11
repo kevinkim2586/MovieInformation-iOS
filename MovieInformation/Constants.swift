@@ -8,5 +8,9 @@ struct Constants {
         static let rootCollectionViewControllerID = "rootCollectionViewController"
     }
     
+    struct cellID {
+        static let movieInfoTableViewCellID = "movieInfoTableCell"
+        static let movieInfoCollectionViewCellID = "movieInfoCollectionCell"
+    }
     
 }
