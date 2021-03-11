@@ -39,20 +39,30 @@ extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = Constants.cellID.movieInfoTableViewCellID
+        
+        let movie = movieList[indexPath.row]
     
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MovieInfoTableViewCell else {
+            print("error in cell creation")
             return UITableViewCell()
         }
 
-        //let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MovieInfoTableViewCell
- 
         
         // nil 값 다 확인하고 ui 에 대입해보기
         
         
+        DispatchQueue.main.async {
+            
+            if let index = tableView.indexPath(for: cell) {
+                
+                if index.row == indexPath.row {
+                    cell.movieNameLabel.text = movie.movieInfo.title
+                    cell.movieReleaseDateLabel.text = movie.movieInfo.date
+                }
+            }
+        }
         
-        cell.movieNameLabel.text = self.movieList[indexPath.row].movieInfo.title
-        cell.movieReleaseDateLabel.text = self.movieList[indexPath.row].movieInfo.date
+        
         
     
         
@@ -71,7 +81,10 @@ extension RootTableViewController: MovieManagerDelegate {
         self.movieList = fetchedMovies
         
         // 아래걸 혹시 main 스레드에 해야함?
-        movieInfoTableView.reloadData()
+        DispatchQueue.main.async {
+            self.movieInfoTableView.reloadData()
+        }
+        
     }
     
     func didFailWithError(error: Error) {
