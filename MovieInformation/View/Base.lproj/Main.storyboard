@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="movieInfoTableCell" rowHeight="129" id="rIG-EV-86R">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="movieInfoTableCell" rowHeight="129" id="rIG-EV-86R" customClass="MovieInfoTableViewCell" customModule="MovieInformation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rIG-EV-86R" id="ptU-j6-SuZ">
@@ -34,20 +34,20 @@
                                                         <constraint firstAttribute="width" constant="100" id="Fbd-MG-93S"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-1c-f8l" userLabel="First Row Stack View">
-                                                    <rect key="frame" x="130" y="11" width="166" height="25"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-1c-f8l" userLabel="First Row Stack View">
+                                                    <rect key="frame" x="130" y="11" width="245" height="25"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영화 이름" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c10-Mw-nwc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영화 이름" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c10-Mw-nwc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="YeE-qI-C6L"/>
+                                                                <constraint firstAttribute="width" constant="200" id="YeE-qI-C6L"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_allages" translatesAutoresizingMaskIntoConstraints="NO" id="w7y-R9-UOo">
-                                                            <rect key="frame" x="141" y="0.0" width="25" height="25"/>
+                                                            <rect key="frame" x="220" y="0.0" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="0JI-8x-eye"/>
                                                                 <constraint firstAttribute="width" constant="25" id="JZq-nU-YFG"/>
@@ -81,14 +81,23 @@
                                             <constraints>
                                                 <constraint firstItem="tOF-0c-y1n" firstAttribute="top" secondItem="oXT-Jf-Gzs" secondAttribute="bottom" constant="15" id="3M6-8D-6pn"/>
                                                 <constraint firstItem="oXT-Jf-Gzs" firstAttribute="leading" secondItem="Ahb-aP-ABN" secondAttribute="trailing" constant="10" id="ABR-IJ-HjO"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tOF-0c-y1n" secondAttribute="trailing" constant="20" symbolic="YES" id="I0C-d9-b2O"/>
                                                 <constraint firstItem="Gf2-1c-f8l" firstAttribute="leading" secondItem="Ahb-aP-ABN" secondAttribute="trailing" constant="10" id="O95-Kv-fUX"/>
                                                 <constraint firstItem="tOF-0c-y1n" firstAttribute="leading" secondItem="Ahb-aP-ABN" secondAttribute="trailing" constant="10" id="WHV-2y-Hs2"/>
                                                 <constraint firstItem="Gf2-1c-f8l" firstAttribute="top" secondItem="ptU-j6-SuZ" secondAttribute="topMargin" id="Yoj-lw-bxc"/>
                                                 <constraint firstItem="Ahb-aP-ABN" firstAttribute="leading" secondItem="ptU-j6-SuZ" secondAttribute="leadingMargin" id="fJg-Zo-BHc"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oXT-Jf-Gzs" secondAttribute="trailing" constant="20" symbolic="YES" id="fht-JN-aOr"/>
                                                 <constraint firstItem="Ahb-aP-ABN" firstAttribute="top" secondItem="ptU-j6-SuZ" secondAttribute="topMargin" id="iUR-06-Uhv"/>
                                                 <constraint firstItem="oXT-Jf-Gzs" firstAttribute="top" secondItem="Gf2-1c-f8l" secondAttribute="bottom" constant="15" id="toD-e2-C5Q"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieAgeLabel" destination="w7y-R9-UOo" id="95U-Cz-tlh"/>
+                                            <outlet property="movieImageView" destination="Ahb-aP-ABN" id="70N-hh-P9a"/>
+                                            <outlet property="movieInfoLabel" destination="oXT-Jf-Gzs" id="cUL-ej-OO5"/>
+                                            <outlet property="movieNameLabel" destination="c10-Mw-nwc" id="bwT-XP-igk"/>
+                                            <outlet property="movieReleaseDateLabel" destination="tOF-0c-y1n" id="rFF-f5-ahz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
