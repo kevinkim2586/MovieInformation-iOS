@@ -52,9 +52,21 @@ extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
             if let index = tableView.indexPath(for: cell) {
                 
                 if index.row == indexPath.row {
-                    cell.movieNameLabel.text = movie.movieInfo.title
-                    cell.movieReleaseDateLabel.text = movie.movieInfo.date
                     cell.movieImageView.image = movie.movieImage
+                    cell.movieAgeIcon.image = UIImage(named: movie.gradeImageIdentifier)
+                    
+                    cell.movieNameLabel.text = movie.movieInfo.title
+                    
+                    cell.movieInfoLabel.text = "평점 : \(movie.movieInfo.user_rating) 예매순위 : \(movie.movieInfo.reservation_grade) 예매율 : \(movie.movieInfo.reservation_rate)"
+                    
+                    cell.movieReleaseDateLabel.text = movie.movieInfo.date
+                    
+                    
+
+                    
+                    
+                    
+                    
                 }
             }
         }
