@@ -45,54 +45,70 @@ struct MovieManager {
     
     func parseJSONForMovieLists(movieData: Data) -> [MovieListModel]? {
         
-        //var moviePosterImages: [UIImage] = []
         var totalMovieInfo: [MovieListModel] = []
+        var totalMoviePosters: [UIImage?] = []
         
         let decoder = JSONDecoder()
         
         do {
             
             let decodedMovieList = try decoder.decode(MovieListData.self, from: movieData)
+            
+            //DispatchQueue.global().async {
+                totalMoviePosters = downloadMoviePosterImage(from: decodedMovieList)
+            //}
+            
 
             for i in 0..<decodedMovieList.movies.count {
                 
-                let movie = MovieListModel(movieInfo: decodedMovieList.movies[i])
+//                print("decodedMovieList: \(decodedMovieList.movies.count)")
+//                print("totalMoviePosters: \(totalMoviePosters.count)")
                 
-            
-                totalMovieInfo.append(movie)
+                if let moviePoster = totalMoviePosters[i] {
+                    
+                    let movie = MovieListModel(movieInfo: decodedMovieList.movies[i], movieImage: moviePoster)
+                    totalMovieInfo.append(movie)
+                    
+                } else {
+                    
+                    let movie = MovieListModel(movieInfo: decodedMovieList.movies[i], movieImage: UIImage())
+                    totalMovieInfo.append(movie)
+                }
             }
-            
-//            if let downloadedPosterImages = downloadMoviePosterImage(from: decodedMovieList.movies) {
-//                moviePosterImages = downloadedPosterImages
-//            }
-            
             return totalMovieInfo
         
-    
         } catch {
             movieDelegate?.didFailWithError(error: error)
             return nil
         }
     }
     
-    func downloadMoviePosterImage(from movies: [Movie]) -> [UIImage]? {
+    func downloadMoviePosterImage(from entireList: MovieListData) -> [UIImage?] {
         
-        var moviePosterImageArray: [UIImage] = []
+        var moviePosterImageArray: [UIImage?] = []
         
         do {
-            for eachMovie in movies {
+            for i in 0..<entireList.movies.count {
                 
-                guard let imageURL = URL(string: eachMovie.thumb) else { return nil }
+                if let imageURL = URL(string: entireList.movies[i].thumb) {
                 
-                let imageData: Data = try Data.init(contentsOf: imageURL)
-                guard let image = UIImage(data: imageData) else { return nil }
-                
-                moviePosterImageArray.append(image)
+                    let imageData: Data = try Data.init(contentsOf: imageURL)
+                    
+                    if let posterImage = UIImage(data: imageData) {
+                        moviePosterImageArray.append(posterImage)
+                    } else {
+                        moviePosterImageArray.append(UIImage())         // 빈 이미지 삽입
+                    }
+                    
+                } else {
+                    moviePosterImageArray.append(UIImage())             // 빈 이미지 삽입
+                }
+
             }
            
             return moviePosterImageArray
 
-        } catch { return nil }
+        } catch { return moviePosterImageArray }
         
     }
     

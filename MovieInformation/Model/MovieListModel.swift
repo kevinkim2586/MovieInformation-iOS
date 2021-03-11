@@ -3,7 +3,7 @@ import UIKit
 struct MovieListModel {
     
     var movieInfo: Movie
-    //let movieImage: UIImage
+    let movieImage: UIImage
     
 //    var gradeImageIdentifier: String {
 //        

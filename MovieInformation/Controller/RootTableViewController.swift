@@ -58,6 +58,7 @@ extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
                 if index.row == indexPath.row {
                     cell.movieNameLabel.text = movie.movieInfo.title
                     cell.movieReleaseDateLabel.text = movie.movieInfo.date
+                    cell.movieImageView.image = movie.movieImage
                 }
             }
         }
