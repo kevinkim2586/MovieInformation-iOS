@@ -5,7 +5,6 @@ struct MovieListModel {
     var movieInfo: Movie
     let movieImage: UIImage
     
-    
     var gradeImageIdentifier: String {
         
         switch movieInfo.grade {

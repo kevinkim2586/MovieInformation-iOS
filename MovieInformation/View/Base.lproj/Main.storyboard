@@ -252,6 +252,9 @@
                     <navigationItem key="navigationItem" title="예매율순" id="iAW-gA-Zl6">
                         <barButtonItem key="rightBarButtonItem" image="ic_settings" id="j2m-LS-mBB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="settingsButtonPressed:" destination="EEh-5s-J3V" id="zbD-Jx-wp7"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

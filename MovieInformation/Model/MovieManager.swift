@@ -55,7 +55,6 @@ struct MovieManager {
             
             for i in 0..<decodedMovieList.movies.count {
 
-                
                 if let moviePoster = totalMoviePosters[i] {
                     
                     let movie = MovieListModel(movieInfo: decodedMovieList.movies[i], movieImage: moviePoster)
