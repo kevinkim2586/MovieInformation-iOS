@@ -11,12 +11,15 @@ class RootTableViewController: UIViewController {
         super.viewDidLoad()
        
         movieManager.movieDelegate = self
-        
-
-        self.movieManager.fetchEntireMovieList(with: 1)
+        self.movieManager.fetchEntireMovieList(with: 0)
  
         movieInfoTableView.delegate = self
         movieInfoTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        movieInfoTableView.reloadData()
     }
 
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {

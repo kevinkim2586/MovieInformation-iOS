@@ -10,7 +10,6 @@ struct MovieManager {
     
     let baseURL = "https://connect-boxoffice.run.goorm.io/"
     
-
     var movieDelegate: MovieManagerDelegate?
     
     func fetchEntireMovieList(with order: Int) {

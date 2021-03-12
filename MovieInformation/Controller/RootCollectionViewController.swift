@@ -11,13 +11,19 @@ class RootCollectionViewController: UIViewController {
         super.viewDidLoad()
         
         movieManager.movieDelegate = self
-        
-        self.movieManager.fetchEntireMovieList(with: 1)
+        self.movieManager.fetchEntireMovieList(with: 0)
         
         
         movieCollectionView.delegate = self
-        movieCollectionView.delegate = self
+        movieCollectionView.dataSource = self
+        
         setFlowLayout()
+        movieCollectionView.reloadData()
+        print("movieListCount: \(self.movieList.count)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         movieCollectionView.reloadData()
     }
     
@@ -43,6 +49,7 @@ extension RootCollectionViewController: UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(self.movieList.count)
         return self.movieList.count
     }
     
