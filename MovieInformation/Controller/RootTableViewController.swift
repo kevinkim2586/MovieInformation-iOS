@@ -13,16 +13,46 @@ class RootTableViewController: UIViewController {
         movieManager.movieDelegate = self
         
 
-        self.movieManager.fetchEntireMovieList()
-        
-
-        
+        self.movieManager.fetchEntireMovieList(with: 1)
+ 
         movieInfoTableView.delegate = self
         movieInfoTableView.dataSource = self
-        
     }
 
-
+    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+        
+        showActionSheet(style: .actionSheet)
+        //movieManager.fetchEntireMovieList(with: movieManager.order_type)
+        //movieInfoTableView.reloadData()
+    }
+    
+    
+    func showActionSheet(style: UIAlertController.Style) {
+        
+        let actionSheet = UIAlertController(title: nil, message: "정렬 순서", preferredStyle: .actionSheet)
+        
+        let orderByReservation = UIAlertAction(title: "에매율 순", style: .default) { (alert) in
+            self.navigationItem.title  = "예매율 순"
+            self.movieManager.fetchEntireMovieList(with: 0)
+        }
+        let orderByCuration = UIAlertAction(title: "큐레이션 순", style: .default) { (alert) in
+            self.navigationItem.title  = "큐레이션 순"
+            self.movieManager.fetchEntireMovieList(with: 1)
+        }
+        let orderByReleaseDate = UIAlertAction(title: "개봉일 순", style: .default) { (alert) in
+            self.navigationItem.title  = "개봉일 순"
+            self.movieManager.fetchEntireMovieList(with: 2)
+        }
+    
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(orderByReservation)
+        actionSheet.addAction(orderByCuration)
+        actionSheet.addAction(orderByReleaseDate)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
 }
 
 //MARK: - UITableViewDelegate, UITableViewDataSource
@@ -30,10 +60,7 @@ class RootTableViewController: UIViewController {
 extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        print(movieList.count)
         return self.movieList.count
-   
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,27 +81,13 @@ extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
                 if index.row == indexPath.row {
                     cell.movieImageView.image = movie.movieImage
                     cell.movieAgeIcon.image = UIImage(named: movie.gradeImageIdentifier)
-                    
                     cell.movieNameLabel.text = movie.movieInfo.title
-                    
                     cell.movieInfoLabel.text = "평점 : \(movie.movieInfo.user_rating) 예매순위 : \(movie.movieInfo.reservation_grade) 예매율 : \(movie.movieInfo.reservation_rate)"
-                    
                     cell.movieReleaseDateLabel.text = movie.movieInfo.date
-                    
-                    
-
-                    
-                    
-                    
-                    
                 }
             }
         }
-        
-        
-        
-    
-        
+
         return cell
     }
     
@@ -89,7 +102,6 @@ extension RootTableViewController: MovieManagerDelegate {
     func didFetchMovieList(_ movieManager: MovieManager, fetchedMovies: [MovieListModel]) {
         self.movieList = fetchedMovies
         
-        // 아래걸 혹시 main 스레드에 해야함?
         DispatchQueue.main.async {
             self.movieInfoTableView.reloadData()
         }

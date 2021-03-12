@@ -9,11 +9,13 @@ protocol MovieManagerDelegate {
 struct MovieManager {
     
     let baseURL = "https://connect-boxoffice.run.goorm.io/"
-    var order_type = 1
+    
 
     var movieDelegate: MovieManagerDelegate?
     
-    func fetchEntireMovieList() {
+    func fetchEntireMovieList(with order: Int) {
+
+        let order_type = order
         
         let urlString = "\(baseURL+Constants.requestParameters.forMovieList)?order_type=\(order_type)"
         print(urlString)
