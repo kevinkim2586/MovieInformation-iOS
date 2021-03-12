@@ -20,10 +20,7 @@ class RootTableViewController: UIViewController {
     }
 
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
-        
         showActionSheet(style: .actionSheet)
-        //movieManager.fetchEntireMovieList(with: movieManager.order_type)
-        //movieInfoTableView.reloadData()
     }
     
     
