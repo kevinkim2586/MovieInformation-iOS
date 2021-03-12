@@ -19,7 +19,6 @@ class RootCollectionViewController: UIViewController {
         
         setFlowLayout()
         movieCollectionView.reloadData()
-        print("movieListCount: \(self.movieList.count)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +32,7 @@ class RootCollectionViewController: UIViewController {
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing  = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        flowLayout.itemSize = CGSize(width: 180, height: 270)
+        flowLayout.itemSize = CGSize(width: 180, height: 400)
         
         movieCollectionView.collectionViewLayout = flowLayout
 
@@ -49,7 +48,6 @@ extension RootCollectionViewController: UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(self.movieList.count)
         return self.movieList.count
     }
     
@@ -57,7 +55,7 @@ extension RootCollectionViewController: UICollectionViewDelegate, UICollectionVi
         
         let cellIdentifier = Constants.cellID.movieInfoCollectionViewCellID
         
-        let movie = movieList[indexPath.row]
+        let movie = movieList[indexPath.item]
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MovieDetailCollectionViewCell else {
             print("error in collection view cell creation")
@@ -68,7 +66,7 @@ extension RootCollectionViewController: UICollectionViewDelegate, UICollectionVi
         
             if let index = collectionView.indexPath(for: cell) {
                 
-                if index.row == indexPath.row {
+                if index.item == indexPath.item {
                     
                     cell.moviePosterImageView.image = movie.movieImage
                     cell.movieGradeImageView.image = UIImage(named: movie.gradeImageIdentifier)
