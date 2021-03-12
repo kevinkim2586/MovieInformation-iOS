@@ -90,8 +90,6 @@ extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
-    
-    
 
 }
 
@@ -113,12 +111,6 @@ extension RootTableViewController: MovieManagerDelegate {
     }
 
 }
-
-
-
-
-
-
 
 
 //MARK: - Other methods

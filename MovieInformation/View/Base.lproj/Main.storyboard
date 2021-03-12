@@ -129,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="2252.1739130434785" y="-90.401785714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--MovieDetailViewController-->
         <scene sceneID="HpN-VI-FG3">
             <objects>
-                <viewController id="8BJ-ca-4dL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="movieDetailViewController" title="MovieDetailViewController" id="8BJ-ca-4dL" customClass="MovieDetailViewController" customModule="MovieInformation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZQj-A7-o74">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLa-28-DG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4749.275362318841" y="251.78571428571428"/>
+            <point key="canvasLocation" x="3565" y="252"/>
         </scene>
         <!--CollectionView-->
         <scene sceneID="XAe-1y-HRE">
