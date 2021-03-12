@@ -114,8 +114,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="예매율순" id="hL8-jV-yV9">
-                        <barButtonItem key="rightBarButtonItem" image="ic_settings" id="Iff-13-vrq">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings" id="Iff-13-vrq" userLabel="Settings Button">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="vfX-us-BIp"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
