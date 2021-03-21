@@ -19,8 +19,6 @@ struct MovieListModel {
         default:
             return "ic_allages"
         }
-     
     }
-
 }
 

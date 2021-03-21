@@ -27,13 +27,14 @@ class RootCollectionViewController: UIViewController {
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+        
         showActionSheet(style: .actionSheet)
     }
     
     func showActionSheet(style: UIAlertController.Style) {
-        
+
         let actionSheet = UIAlertController(title: nil, message: "정렬 순서", preferredStyle: .actionSheet)
-        
+
         let orderByReservation = UIAlertAction(title: "에매율 순", style: .default) { (alert) in
             self.navigationItem.title  = "예매율 순"
             self.movieManager.fetchEntireMovieList(with: 0)
@@ -46,14 +47,14 @@ class RootCollectionViewController: UIViewController {
             self.navigationItem.title  = "개봉일 순"
             self.movieManager.fetchEntireMovieList(with: 2)
         }
-    
+
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        
+
         actionSheet.addAction(orderByReservation)
         actionSheet.addAction(orderByCuration)
         actionSheet.addAction(orderByReleaseDate)
         actionSheet.addAction(cancelAction)
-        
+
         self.present(actionSheet, animated: true, completion: nil)
     }
     
@@ -94,30 +95,13 @@ extension RootCollectionViewController: UICollectionViewDelegate, UICollectionVi
         }
 
         cell.moviePosterImageView.image = movie.movieImage
-        
+
         cell.movieGradeImageView.image = UIImage(named: movie.gradeImageIdentifier)
         cell.movieTitleLabel.text = movie.movieInfo.title
         cell.movieReleaseDate.text = movie.movieInfo.date
         cell.movieDetailInfoLabel.text = "\(movie.movieInfo.reservation_grade)위(\(movie.movieInfo.user_rating)) / \(movie.movieInfo.reservation_rate)%"
         
-//        DispatchQueue.main.async {
-//
-//            if let index = collectionView.indexPath(for: cell) {
-//
-//                if index.item == indexPath.item {
-//
-//                    cell.moviePosterImageView.image = movie.movieImage
-//
-//                    cell.movieGradeImageView.image = UIImage(named: movie.gradeImageIdentifier)
-//                    cell.movieTitleLabel.text = movie.movieInfo.title
-//                    cell.movieReleaseDate.text = movie.movieInfo.date
-//                    cell.movieDetailInfoLabel.text = "\(movie.movieInfo.reservation_grade)위(\(movie.movieInfo.user_rating)) / \(movie.movieInfo.reservation_rate)%"
-//
-//                    cell.setNeedsLayout()
-//                    cell.layoutIfNeeded()
-//                }
-//            }
-//        }
+
         
         return cell
     }

@@ -115,7 +115,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CKi-hp-sdS" secondAttribute="bottom" id="mlf-37-re4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="예매율순" id="hL8-jV-yV9">
+                    <navigationItem key="navigationItem" title="예매율 순" id="hL8-jV-yV9">
                         <barButtonItem key="rightBarButtonItem" image="ic_settings" id="Iff-13-vrq" userLabel="Settings Button">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -138,14 +138,61 @@
                     <view key="view" contentMode="scaleToFill" id="ZQj-A7-o74">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSs-ra-sUF" userLabel="Upper View">
+                                <rect key="frame" x="0.0" y="88" width="414" height="350"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0od-ig-9dv" userLabel="Movie Image View">
+                                        <rect key="frame" x="5" y="5" width="160" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="7dk-go-rU2"/>
+                                            <constraint firstAttribute="height" constant="240" id="QgZ-bc-z9o"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="영화 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBc-cC-rpT">
+                                        <rect key="frame" x="182" y="8" width="190" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2017-10-03 개봉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atj-xa-oC5">
+                                        <rect key="frame" x="182" y="72" width="190" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="액션 / 120분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4m-Qg-WoR">
+                                        <rect key="frame" x="182" y="127" width="190" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="895-7J-nPP"/>
+                                    <constraint firstItem="0od-ig-9dv" firstAttribute="top" secondItem="lSs-ra-sUF" secondAttribute="top" constant="5" id="R8B-rU-KI8"/>
+                                    <constraint firstItem="0od-ig-9dv" firstAttribute="leading" secondItem="lSs-ra-sUF" secondAttribute="leading" constant="5" id="x7g-Ub-fhh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="b7S-s1-3XG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lSs-ra-sUF" firstAttribute="leading" secondItem="b7S-s1-3XG" secondAttribute="leading" id="N1f-2L-eJz"/>
+                            <constraint firstItem="b7S-s1-3XG" firstAttribute="trailing" secondItem="lSs-ra-sUF" secondAttribute="trailing" id="d57-1f-UdK"/>
+                            <constraint firstItem="lSs-ra-sUF" firstAttribute="top" secondItem="b7S-s1-3XG" secondAttribute="top" id="lfe-7b-T28"/>
+                            <constraint firstItem="lSs-ra-sUF" firstAttribute="centerX" secondItem="ZQj-A7-o74" secondAttribute="centerX" id="ozX-X9-nDP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pGj-bf-hcJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLa-28-DG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3336" y="252"/>
+            <point key="canvasLocation" x="3334.7826086956525" y="251.78571428571428"/>
         </scene>
         <!--CollectionView-->
         <scene sceneID="XAe-1y-HRE">
@@ -249,7 +296,7 @@
                             <constraint firstItem="dzB-jS-n9f" firstAttribute="top" secondItem="RO9-0h-7IA" secondAttribute="top" id="iam-3w-P1X"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="예매율순" id="iAW-gA-Zl6">
+                    <navigationItem key="navigationItem" title="예매율 순" id="iAW-gA-Zl6">
                         <barButtonItem key="rightBarButtonItem" image="ic_settings" id="j2m-LS-mBB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
