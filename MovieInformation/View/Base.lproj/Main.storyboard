@@ -136,11 +136,11 @@
             <objects>
                 <viewController storyboardIdentifier="movieDetailViewController" title="MovieDetailViewController" id="8BJ-ca-4dL" customClass="MovieDetailViewController" customModule="MovieInformation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZQj-A7-o74">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4JP-xe-1mT">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="1112"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSs-ra-sUF" userLabel="Upper View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
@@ -305,14 +305,57 @@
                                             <constraint firstItem="0od-ig-9dv" firstAttribute="leading" secondItem="lSs-ra-sUF" secondAttribute="leading" constant="5" id="x7g-Ub-fhh"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6i8-9h-CIW" userLabel="Summary View">
+                                        <rect key="frame" x="0.0" y="360" width="414" height="130"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="줄거리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svs-cT-0EQ">
+                                                <rect key="frame" x="8" y="8" width="45" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="ng3-nD-dwq"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1a-1j-DP0" userLabel="Comment View">
+                                        <rect key="frame" x="0.0" y="500" width="414" height="81"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contrary to popular belief, Lorem Ipsum is not simply random teBC, making it ovContrary to p, making it ov" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiO-s9-vu8">
+                                                <rect key="frame" x="10" y="10" width="394" height="61"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="RiO-s9-vu8" firstAttribute="top" secondItem="B1a-1j-DP0" secondAttribute="top" constant="10" id="MCn-ID-V2p"/>
+                                            <constraint firstItem="RiO-s9-vu8" firstAttribute="leading" secondItem="B1a-1j-DP0" secondAttribute="leading" constant="10" id="O5s-eQ-hK8"/>
+                                            <constraint firstAttribute="trailing" secondItem="RiO-s9-vu8" secondAttribute="trailing" constant="10" id="pe3-F8-fUo"/>
+                                            <constraint firstAttribute="bottom" secondItem="RiO-s9-vu8" secondAttribute="bottom" constant="10" id="udf-eC-l29"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="B1a-1j-DP0" firstAttribute="top" secondItem="6i8-9h-CIW" secondAttribute="bottom" constant="10" id="5QZ-EK-c4n"/>
                                     <constraint firstItem="lSs-ra-sUF" firstAttribute="leading" secondItem="4JP-xe-1mT" secondAttribute="leading" id="8z8-fS-hob"/>
-                                    <constraint firstAttribute="bottom" secondItem="lSs-ra-sUF" secondAttribute="bottom" constant="375" id="Dsc-GC-xx1"/>
+                                    <constraint firstItem="YW5-1T-e8O" firstAttribute="trailing" secondItem="B1a-1j-DP0" secondAttribute="trailing" id="Cnc-lE-grl"/>
                                     <constraint firstAttribute="trailing" secondItem="lSs-ra-sUF" secondAttribute="trailing" id="Xeu-cd-ZSV"/>
+                                    <constraint firstItem="6i8-9h-CIW" firstAttribute="top" secondItem="lSs-ra-sUF" secondAttribute="bottom" constant="10" id="YoP-hP-mC0"/>
                                     <constraint firstItem="lSs-ra-sUF" firstAttribute="centerX" secondItem="4JP-xe-1mT" secondAttribute="centerX" id="aU6-Ih-Cgb"/>
-                                    <constraint firstItem="lSs-ra-sUF" firstAttribute="top" secondItem="4JP-xe-1mT" secondAttribute="top" id="s8X-oy-yrc"/>
+                                    <constraint firstItem="B1a-1j-DP0" firstAttribute="bottom" secondItem="YW5-1T-e8O" secondAttribute="bottom" id="fZW-UK-u15"/>
+                                    <constraint firstAttribute="trailing" secondItem="6i8-9h-CIW" secondAttribute="trailing" id="p9y-Tm-vXU"/>
+                                    <constraint firstItem="lSs-ra-sUF" firstAttribute="top" secondItem="YW5-1T-e8O" secondAttribute="top" id="s8X-oy-yrc"/>
+                                    <constraint firstItem="B1a-1j-DP0" firstAttribute="leading" secondItem="YW5-1T-e8O" secondAttribute="leading" id="tpt-oy-3eU"/>
+                                    <constraint firstItem="6i8-9h-CIW" firstAttribute="leading" secondItem="4JP-xe-1mT" secondAttribute="leading" id="udu-4r-NK3"/>
+                                    <constraint firstItem="B1a-1j-DP0" firstAttribute="width" secondItem="cYk-iY-k4n" secondAttribute="width" id="wr0-Ac-EUk"/>
                                 </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="YW5-1T-e8O"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="cYk-iY-k4n"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b7S-s1-3XG"/>
@@ -321,10 +364,11 @@
                             <constraint firstItem="4JP-xe-1mT" firstAttribute="leading" secondItem="b7S-s1-3XG" secondAttribute="leading" id="Ad9-0k-ZG2"/>
                             <constraint firstItem="4JP-xe-1mT" firstAttribute="top" secondItem="b7S-s1-3XG" secondAttribute="top" id="Mh0-oL-687"/>
                             <constraint firstItem="4JP-xe-1mT" firstAttribute="trailing" secondItem="b7S-s1-3XG" secondAttribute="trailing" id="m4i-gY-ILM"/>
-                            <constraint firstItem="b7S-s1-3XG" firstAttribute="bottom" secondItem="4JP-xe-1mT" secondAttribute="bottom" id="tSE-TK-WWq"/>
+                            <constraint firstAttribute="bottom" secondItem="4JP-xe-1mT" secondAttribute="bottom" id="tSE-TK-WWq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pGj-bf-hcJ"/>
+                    <size key="freeformSize" width="414" height="1200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLa-28-DG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
