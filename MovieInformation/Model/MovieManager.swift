@@ -103,6 +103,18 @@ struct MovieManager {
         
     }
     
+    
+    // Fetch detailed movie information for a single movie
+    
+    func fetchMovieDetailInformation() {
+        
+        
+        
+        
+    }
+    
+    
+    
 }
 
 

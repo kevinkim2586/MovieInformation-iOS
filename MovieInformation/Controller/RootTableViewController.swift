@@ -90,6 +90,23 @@ extension RootTableViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        performSegue(withIdentifier: "listToDetailView", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let movieDetailVC = segue.destination as! MovieDetailViewController
+        
+        if let indexPath = movieInfoTableView.indexPathForSelectedRow {
+            
+            
+            movieDetailVC.navigationItem.title = movieList[indexPath.row].movieInfo.title
+        }
+    }
 
 }
 
